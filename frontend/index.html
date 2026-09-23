@@ -12,6 +12,8 @@
     #live { min-height: 1.4em; }
     table { width: 100%; border-collapse: collapse; }
     td, th { border-bottom: 1px solid #57534e; padding: 6px; text-align: left; }
+    pre { background: #292524; padding: 12px; white-space: pre-wrap; }
+    code { color: #fbbf24; }
   </style>
 </head>
 <body>
@@ -35,7 +37,17 @@
         <input id="ch4" type="number" step="0.01" placeholder="甲烷 %" />
         <button>上报</button>
       </form>
-      <table><thead><tr><th>测点</th><th>甲烷 %</th><th>状态</th><th>说明</th></tr></thead><tbody id="rows"></tbody></table>
+      <table><thead><tr><th>测点</th><th>甲烷 %</th><th>状态</th><th>说明</th><th id="correct-col">改正</th></tr></thead><tbody id="rows"></tbody></table>
+      <h2>推送抄本</h2>
+      <p>每次达到报警线推送时单独存档，正文与校验短串冻结于推送当时，事后改正浓度不影响已生成的抄本。</p>
+      <table>
+        <thead><tr><th>抄本号</th><th>测点</th><th>甲烷 %</th><th>状态</th><th>校验短串</th><th>推送时间</th><th>操作</th></tr></thead>
+        <tbody id="transcripts"></tbody>
+      </table>
+      <section id="transcript-detail" hidden>
+        <h3>抄本详情</h3>
+        <pre id="transcript-body"></pre>
+      </section>
     </section>
   </main>
   <script src="/app.js"></script>
