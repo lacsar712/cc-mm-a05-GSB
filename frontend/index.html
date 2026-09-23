@@ -35,7 +35,24 @@
         <input id="ch4" type="number" step="0.01" placeholder="甲烷 %" />
         <button>上报</button>
       </form>
-      <table><thead><tr><th>测点</th><th>甲烷 %</th><th>状态</th><th>说明</th></tr></thead><tbody id="rows"></tbody></table>
+      <section id="readingView">
+        <table>
+          <thead>
+            <tr><th>测点</th><th>甲烷 %</th><th>状态</th><th>说明</th><th>抄本</th><th>改正班测</th></tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+        <p><button id="allTranscripts">查看全部抄本</button></p>
+      </section>
+      <section id="transcriptView" hidden>
+        <p><button id="backReadings">← 返回班测列表</button> <span id="transcriptScope"></span></p>
+        <table>
+          <thead>
+            <tr><th>抄本号</th><th>班测号</th><th>测点</th><th>冻结浓度</th><th>状态原文</th><th>校验短串</th><th>推送时间</th><th>下载</th></tr>
+          </thead>
+          <tbody id="scripts"></tbody>
+        </table>
+      </section>
     </section>
   </main>
   <script src="/app.js"></script>
